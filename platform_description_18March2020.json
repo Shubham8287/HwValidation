@@ -29,7 +29,7 @@
     "deployment_style":"",
     "container_orchestrator":""
   },
-  "_comment_deployment":" Type can be OOK or NOOK",
+  "_comment_deployment":" Type ca be OOK or NOOK",
   "deployment_info": {
     "workload_vnf":"",
     "workload_cnf":""
@@ -96,12 +96,12 @@
   ],
   "nic_profiles": [
     {
-      "profile_name":"",
+      "profile_name":"uh",
       "profile_info": [
         {
           "alias":"",
           "address":"",
-          "dev_type":"",
+          "dev_type":"hu",
           "bus":"",
           "sriov_capable":"",
           "numa_id":""
