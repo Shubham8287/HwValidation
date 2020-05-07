@@ -29,7 +29,7 @@ class ServerVerification:
 
   # load validaton file - file to test the response
   def loadValidationFile(self):
-    with open(validationFile, 'r') as f:
+    with open(self.validationFile, 'r') as f:
       #validConfig variable store requested configuration (which is used to check server config) in JSON fomat
       self.validConfig = json.load(f)
 

@@ -3,7 +3,7 @@ import json
 from validator import ServerVerification
 
 #URl to call REST api
-URL = "https://raw.githubusercontent.com/opensource-tnbt/sdv/master/platform_description_18March2020.json"
+URL = "https://raw.githubusercontent.com/shivam8287/HwValidation/master/test_data.json"
 
 #File use to check the response
 validationFile = "test_data.json"
@@ -13,7 +13,7 @@ class TestServerVerification(unittest.TestCase):
     def setUp(self):
         self.testServer = ServerVerification(URL,validationFile)
 
-    def test_createObject(self):
+    def test_checkVariables(self):
         self.assertEqual(self.testServer.URL, URL)
         self.assertEqual(self.testServer.validationFile, validationFile)
 
@@ -27,6 +27,13 @@ class TestServerVerification(unittest.TestCase):
         self.testServer.loadValidationFile()
         self.assertEqual(self.testServer.validConfig, validConfig)
 
+
+    def test_compareNodes(self):
+        self.testServer.loadValidationFile()
+        self.testServer.loadJSON()
+
+        self.testServer.compareNodes(self.testServer.validConfig, self.testServer.serverConfig)
+        self.assertEqual(self.testServer.validationSuccess, True)
 
 if __name__ == "__main__":
     unittest.main()
