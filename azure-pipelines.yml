@@ -14,11 +14,7 @@ steps:
   displayName: 'Run a one-line script'
   
 - script: sudo apt get -y update
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
   displayName: 'update'
 
 - script: sudo apt get install python3
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
   displayName: 'install'
