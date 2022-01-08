@@ -9,12 +9,22 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-  
-- script: sudo apt get -y update
-  displayName: 'update'
-
-- script: sudo apt get install python3
-  displayName: 'install'
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: sudo apt-get -y update
+- stage: Test
+  jobs:
+  - job: TestOnWindows
+    steps:
+    - script: sudo apt-get install python3
+  - job: TestOnLinux
+    steps:
+    - script: echo Testing on Linux!
+- stage: Deploy
+  jobs:
+  - job: Deploy
+    steps:
+    - script: $(run)
